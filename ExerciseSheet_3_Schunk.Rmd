@@ -187,6 +187,27 @@ given special attention in wildlife conservation efforts.
 
 e)  Use R to answer your chosen question.
 
+```{r}
+Whale_populations <- read_csv("Whale populations (Pershing et al. 2010).csv")
+View(Whale_populations) # Load data into R
+
+Whale_populations <- Whale_populations %>% rename(Population = `Whale populations (Pershing et al. 2010)`) # Rename variable
+
+Whale_populations_diff <- Whale_populations %>% group_by(Entity) %>% summarise(Population_diff_abs = Population[Year == 2001] - Population[Year == 1890], Population_diff_rel = (Population[Year == 2001] - Population[Year == 1890]) / Population[Year == 1890]) # Calculate the absolute and relative difference between whale populations in 1890 and 2001, grouped by whale species
+
+Whale_populations_diff %>% select(Entity, Population_diff_rel) %>% knitr::kable(caption = "Relative differences of whale populations between 1890 and 2001")
+```
+
+As anticipated, the table shows that the population size of every single
+whale species in the data has decreased between 1890 and 2001. For all
+whale species we can see a decrease in population size of 65.7 %. The
+whale species with the smallest decrease is the Minke whale. Its
+population size went 20.4 % down over the course of the last century.
+The most drastic decreases in population size were faced by the Right
+Whale (89.0 %), the Bowhead whale (89.4 %) and foremost the Blue whale
+with 98.6 %. These three whale species should be given special attention
+in wildlife conservative efforts.
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
