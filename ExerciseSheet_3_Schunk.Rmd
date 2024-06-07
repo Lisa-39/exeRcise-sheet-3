@@ -135,6 +135,11 @@ Therefore 2022 had a slightly bigger baby-boom.
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
+```{r}
+vornamen_2022 <- vornamen_2022 %>% mutate(Jahr = 2022)
+vornamen_2023 <- vornamen_2023 %>% mutate(Jahr = 2023)
+```
+
 e)  Combine both datasets into one using `bind_rows()`.
 
 f)  Combine the counts for same names to determine the most popular
