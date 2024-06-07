@@ -177,6 +177,14 @@ d)  Come up with a (research) question you want to answer with the data
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
 
+Using this dataset on whale populations, I want to find out how much the
+population sizes of whales and different whale species have changed over
+the course of the last century. Whales are known for being overhunted in
+the past and therefore I expect to observe decreases in the whale
+populations. Finding out which whale species populations have changed
+their sizes the most, can help to decide which whale species should be
+given special attention in wildlife conservation efforts.
+
 e)  Use R to answer your chosen question.
 
 f)  Create a meaningful plot / figure with the dataset. Make sure to
