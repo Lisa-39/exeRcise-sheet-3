@@ -70,6 +70,8 @@ a)  Create a new repository on GitHub in your account named
 
 git\@github.com:Lisa-39/exeRcise-sheet-3.git
 
+<https://github.com/Lisa-39/exeRcise-sheet-3>
+
 b)  Push your code to this new repository by copying and executing the
     snippet on github listed under
     `…or push an existing repository from the command line`.
@@ -225,4 +227,4 @@ theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ## Final Note
 
 Make sure to push all your commits and changes to GitHub before
-submittining the exercise sheet.
+submitting the exercise sheet.
