@@ -93,6 +93,34 @@ b)  Load the data for both years into R. Check the type of the count
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
 
+```{r}
+library(tidyverse)
+library(readr)
+
+vornamen_2022 <- read_csv("vornamen-muenchen-2022.csv")
+View(vornamen_2022) # Load Vornamen Munich 2022 into R
+vornamen_2023 <- read_csv("vornamen-muenchen-2023.csv")
+View(vornamen_2023) # Load Vornamen Munich 2023 into R
+```
+
+The count variable ("Anzahl") is not numeric because names that were
+given to 4 or less babies in that year are summarized as "4 oder
+weniger" instead stating the exact number ("1", "2", "3" or "4").
+Therefore the data doesn't tell us if these names were given once,
+twice, three times or four times that year. In order to make this
+variable numeric we have to replace it with a number between 1 and 4,
+which will lead to make some of the counts inaccurate. I decided to
+replace "4 oder weniger" with "1" because it seems to me that a large
+part of these names are very uncommon and probably only occured once.
+
+```{r}
+vornamen_2022 <- vornamen_2022 %>% mutate(Anzahl_num = recode(Anzahl, `4 oder weniger` = "1")) # recode "4 oder weniger" as "1"
+vornamen_2022$Anzahl_num <- as.numeric(vornamen_2022$Anzahl_num) # tell R that variable Anzahl_num is numeric 
+
+vornamen_2023 <- vornamen_2023 %>% mutate(Anzahl_num = recode(Anzahl, `4 oder weniger` = "1")) # recode "4 oder weniger" as "1"
+vornamen_2023$Anzahl_num <- as.numeric(vornamen_2023$Anzahl_num) # tell R that variable Anzahl_num is numeric
+```
+
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
 
