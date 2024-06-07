@@ -212,6 +212,16 @@ f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
 
+```{r fig.cap = "Relative differences of whale populations between 1890 and 2001"}
+ggplot(Whale_populations_diff,
+       aes(x = Entity, y = Population_diff_rel, fill = Entity)) + 
+geom_bar(stat = "identity") +
+theme_minimal() +
+labs(title = "Relative differences of whale populations between 1890 and 2001", x = "Whale Species", y = "Relative Difference in %", fill = "Whale Species") +
+scale_y_continuous(labels = scales::percent) +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
 ## Final Note
 
 Make sure to push all your commits and changes to GitHub before
